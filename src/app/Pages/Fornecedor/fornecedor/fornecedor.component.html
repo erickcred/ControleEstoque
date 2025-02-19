@@ -1,0 +1,31 @@
+<app-header-component [titulo]="'Fornecedores'"></app-header-component>
+
+<mat-table [dataSource]="fornecedores" matSort>
+  <ng-component matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
+    <mat-cell *matCellDef="let fornecedor"> {{fornecedor.nome}} </mat-cell>
+  </ng-component>
+
+  <ng-container matColumnDef="cpf">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPF </mat-header-cell>
+    <mat-cell *matCellDef="let fornecedor"> {{fornecedor.cpf}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cnpj">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CNPJ </mat-header-cell>
+    <mat-cell *matCellDef="let fornecedor"> {{fornecedor.cpf}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+    <mat-cell *matCellDef="let fornecedor"> {{fornecedor.email}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+    <mat-cell *matCellDef="let fornecedor"> {{fornecedor.status}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayColumns"></mat-row>
+</mat-table>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponentComponent } from "../../../Components/header-component/header-component.component";
 import { MatModule } from '@shared/mat-module/mat.module';
-import { Fornecedor } from '../../../Dtos/Fornecedor';
-import { ETipoPessoa } from '../../../Dtos/enums/ETipoPessoa';
+import { FornecedorViewModel } from '@viewModels/FornecedorViewModel';
+import { ETipoPessoa } from '@dtos/enums/ETipoPessoa';
+
 
 @Component({
   selector: 'app-fornecedor',
@@ -15,10 +16,10 @@ import { ETipoPessoa } from '../../../Dtos/enums/ETipoPessoa';
 })
 export class FornecedorComponent implements OnInit {
 
-  displayColumns: string[] = [ 'nome', 'cpf', 'cnpj', 'email', 'status' ];
-  fornecedores: Fornecedor[] = [
+  displayColumns: string[] = [ 'id', 'nome', 'cpf', 'cnpj', 'email', 'status' ];
+  fornecedores: FornecedorViewModel[] = [
     {
-      id: 0,
+      id: 1,
       nome: 'Erick', cpf: '12345678910', cnpj: '', email: 'erick@email.com', status: true,
       tipo: ETipoPessoa.Fisica,
       telefone: [],

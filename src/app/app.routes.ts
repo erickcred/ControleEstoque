@@ -9,5 +9,9 @@ export const routes: Routes = [
     path: 'fornecedores',
     loadChildren: () => import('./Pages/Fornecedor/fornecedor.routes').then(r => r.FornecedorRoutes)
   },
-  { path: '', redirectTo: 'fornecedores', pathMatch: 'full' }
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./Pages/Usuario/usuario.rotes').then(r => r.UsuarioRoutes)
+  },
+  { path: '', redirectTo: 'usuarios', pathMatch: 'full' }
 ];

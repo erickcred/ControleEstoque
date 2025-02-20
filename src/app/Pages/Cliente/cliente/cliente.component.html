@@ -1,6 +1,10 @@
 <app-header-component [titulo]="'Clientes'"></app-header-component>
 
 <mat-table [dataSource]="clientes" matSort>
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+    <mat-cell *matCellDef="let cliente"> {{cliente.id}} </mat-cell>
+  </ng-container>
 
   <ng-container matColumnDef="nome">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
@@ -14,7 +18,7 @@
 
   <ng-container matColumnDef="cnpj">
     <mat-header-cell *matHeaderCellDef mat-sort-header> CNPJ </mat-header-cell>
-    <mat-cell *matCellDef="let cliente"> {{cliente.cpf}} </mat-cell>
+    <mat-cell *matCellDef="let cliente"> {{cliente.cnpj}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="email">
@@ -30,3 +34,9 @@
   <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayColumns"></mat-row>
 </mat-table>
+
+
+<app-form-cliente-fornecedor
+  [nomeComponete]="'Clientes'"
+  (onSubmitEvent)="onSubmit($event)"
+></app-form-cliente-fornecedor>

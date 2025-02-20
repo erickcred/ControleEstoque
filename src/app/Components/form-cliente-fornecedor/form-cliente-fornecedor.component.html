@@ -1,0 +1,85 @@
+<app-header-component [titulo]="nomeComponete"></app-header-component>
+
+<form [formGroup]="formData" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome">
+      @if (formData.get('nome')?.invalid && formData.get('nome')?.touched) {
+        <mat-error>Nome é obrigatório!</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="tipo">
+        @for (tipoPessoa of eTipoPessoa; track $index) {
+          <mat-option [value]="tipoPessoa[$index]">
+            {{$index}} - {{tipoPessoa[$index]}}
+          </mat-option>
+        }
+      </mat-select>
+      @if (formData.get('tipo')?.invalid && formData.get('tipo')?.touched) {
+        <mat-error>Tipo é obrigatório!</mat-error>
+      }
+    </mat-form-field>
+
+    @if (pessoaJuridica) {
+      <mat-form-field>
+        <mat-label>CNPJ</mat-label>
+        <input matInput formControlName="cnpj">
+        @if (formData.get('cnpj')?.invalid && pessoaJuridica && formData.get('cnpj')?.touched) {
+          <mat-error>CNPJ é obrigatório!</mat-error>
+        }
+      </mat-form-field>
+    }
+    @if (pessoaFisica) {
+      <mat-form-field>
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="cpf">
+        @if (formData.get('cpf')?.invalid && pessoaFisica && formData.get('cpf')?.touched) {
+          <mat-error>CPF é obrigatório!</mat-error>
+        }
+      </mat-form-field>
+    }
+
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input
+        matInput
+        placeholder="nome@example.com"
+        formControlName="email"
+        required>
+        @if (formData.get('email')?.invalid && formData.get('email')?.touched) {
+          <mat-error>E-mail é obrigatório!</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Telefone</mat-label>
+      <input matInput formControlName="telefone">
+      @if (formData.get('telefone')?.invalid && formData.get('telefone')?.touched) {
+        <mat-error>Telefone é obrigatório!</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Endereco</mat-label>
+      <input matInput formControlName="endereco">
+      @if (formData.get('endereco')?.invalid && formData.get('endereco')?.touched) {
+        <mat-error>Endereço é obrigatório!</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-slide-toggle
+      formControlName="status"
+      labelPosition="before"
+    >
+      <h3>{{
+        formData.get('status')?.value === true ? 'Ativo' : 'Inativo'
+      }}</h3>
+    </mat-slide-toggle>
+  </div>
+
+  <button mat-raised-button color="primary">Cadastrar</button>
+</form>

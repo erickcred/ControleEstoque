@@ -8,7 +8,8 @@
     "paths": {
       "@components/*": [ "./src/app/Components/*" ],
       "@pages/*": [ "./src/app/Pages/*" ],
-      "@dtos/*": [ "./src/app/DTOs/*" ],
+      "@dtos/*": [ "./src/app/Dtos/*" ],
+      "@viewModels/*": [ "./src/app/ViewModels/*" ],
       "@shared/*": [ "./src/app/Shared/*" ],
     },
     "noImplicitOverride": true,

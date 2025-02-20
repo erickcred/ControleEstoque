@@ -1,6 +1,11 @@
 <app-header-component [titulo]="'Fornecedores'"></app-header-component>
 
 <mat-table [dataSource]="fornecedores" matSort>
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+    <mat-cell *matCellDef="let fornecedor"> {{fornecedor.id}} </mat-cell>
+  </ng-container>
+
   <ng-component matColumnDef="nome">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
     <mat-cell *matCellDef="let fornecedor"> {{fornecedor.nome}} </mat-cell>

@@ -48,8 +48,8 @@ export class FormClienteFornecedorComponent implements OnInit {
       this.pessoaFisica = value === ETipoPessoa.Fisica;
       this.resetaValoresCpfCnpj();
 
-      console.log('Pessoa juridica: ', this.pessoaJuridica)
-      console.log('Pessoa fisica: ', this.pessoaFisica)
+      console.log('Pessoa juridica: ', this.pessoaJuridica);
+      console.log('Pessoa fisica: ', this.pessoaFisica);
     });
   }
 
